@@ -100,7 +100,7 @@ select {
   background: black;
   background-image: url("../images/blackgirlalien.jpg");
   background-attachment: fixed;
-  background-position: top center;
+  background-position: center;
   background-size: cover;
 }
 
