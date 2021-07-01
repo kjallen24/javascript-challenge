@@ -5,7 +5,7 @@ var tableData = data;
 var tbody = d3.select("tbody");
 
 // Console.log the weather data from data.js
-console.log(data);
+//console.log(data);
 
 // Step 1: Loop Through `data` and console.log each weather report object
 data.forEach(function(ufoSightings) {
