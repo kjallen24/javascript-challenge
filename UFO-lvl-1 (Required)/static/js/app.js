@@ -25,33 +25,6 @@ data.forEach(function(ufoSightings) {
  });
 });
 
-// Step 4: Use d3 to append 1 cell per weather report value (weekday, date, high, low)
-data.forEach(function(ufoSightings) {
-  console.log(ufoSightings);
-  var row = tbody.append("tr");
-
-  Object.entries(ufoSightings).forEach(function([key, value]) {
-    console.log(key, value);
-    // Append a cell to the row for each value
-    // in the weather report object
-    var cell = row.append("td");
-  });
-});
-
-// // Step 5: Use d3 to update each cell's text with
-// // weather report values (weekday, date, high, low)
-// data.forEach(function(weatherReport) {
-//   console.log(weatherReport);
-//   var row = tbody.append("tr");
-//   Object.entries(weatherReport).forEach(function([key, value]) {
-//     console.log(key, value);
-//     // Append a cell to the row for each value
-//     // in the weather report object
-//     var cell = row.append("td");
-//     cell.text(value);
-//   });
-// });
-
 //BONUS: Refactor to use Arrow Functions!
 data.forEach((ufoSightings) => {
  var row = tbody.append("tr");
@@ -60,3 +33,32 @@ data.forEach((ufoSightings) => {
    cell.text(value);
  });
 });
+
+var button = d3.select("#filter-btn");
+
+// Select the form
+var form = d3.select("#form");
+
+// Create event handlers 
+button.on("click", runEnter);
+form.on("submit",runEnter);
+
+// Complete the event handler function for the form
+function runEnter() {
+
+  // Prevent the page from refreshing
+  d3.event.preventDefault();
+  
+  // Select the input element and get the raw HTML node
+  var inputElement = d3.select("#datetime");
+
+  // Get the value property of the input element
+  var dateInput = inputElement.property("value");
+
+  console.log(dateInput);
+  console.log(tableData);
+
+  var filteredData = tableData.filter(tableData => tableData.datetime === dateInput);
+
+  console.log(filteredData);
+}
