@@ -53,7 +53,7 @@
               <thead>
                 <tr>
                   <th class="table-head">Date/Time</th>
-                  <th class="table-head">City</th>
+                  <th class="table-head">Cityk</th>
                   <th class="table-head">State</th>
                   <th class="table-head">Country</th>
                   <th class="table-head">Shape</th>
@@ -62,17 +62,7 @@
                 </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td>24</td>
-                      <td>24</td>
-                      <td>24</td>
-                      <td>24</td>
-                      <td>24</td>
-                      <td>24</td>
-                      <td>24</td>
-                      <td>24</td>
-                  </tr>
-                </tbody>
+              </tbody>
             </table>
             <script type = "text/javascript">
                 const UFOsightings = document.querySelector("#ufo-table > tbody");
@@ -81,7 +71,8 @@
                     const request = new XMLHttpRequest();
 
                     request.open("get", "static/js/data.js");
-                    request.onload = ()
+                    request.onload = () => {
+                        const json = JSON.parse(request.responseText); };
                 }
             </script>
           </div>
