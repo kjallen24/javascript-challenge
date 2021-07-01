@@ -9,8 +9,7 @@ data.forEach(function(ufoSightings) {
   //console.log(ufoSightings);
 });
 
-// // Step 2:  Use d3 to append one table row `tr` for each weather report object
-// // Don't worry about adding cells or text yet, just try appending the `tr` elements.
+// Using d3 to append one table row `tr` for each ufo sighting
 data.forEach(function(ufoSightings) {
   //console.log(ufoSightings);
   var row = tbody.append("tr");
