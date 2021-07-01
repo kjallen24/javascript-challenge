@@ -4,18 +4,15 @@ var tableData = data;
 // Get a reference to the table body
 var tbody = d3.select("tbody");
 
-// Console.log the weather data from data.js
-//console.log(data);
-
-// Step 1: Loop Through `data` and console.log each weather report object
+// Loop Through `data` and console.log each ufo sighting
 data.forEach(function(ufoSightings) {
-  console.log(ufoSightings);
+  //console.log(ufoSightings);
 });
 
 // // Step 2:  Use d3 to append one table row `tr` for each weather report object
 // // Don't worry about adding cells or text yet, just try appending the `tr` elements.
 data.forEach(function(ufoSightings) {
-  console.log(ufoSightings);
+  //console.log(ufoSightings);
   var row = tbody.append("tr");
 });
 
