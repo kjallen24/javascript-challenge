@@ -1,9 +1,12 @@
 // from data.js
-var tableData = data;
+const tableData = data;
 
 // Get a reference to the table body
-var tbody = d3.select("tbody");
+const tbody = d3.select("tbody");
 
+function buildOrgtable()
+{
+    tbody.html("");
 // Loop Through `data` and console.log each ufo sighting
 data.forEach(function(ufoSightings) {
   //console.log(ufoSightings);
@@ -32,22 +35,12 @@ data.forEach((ufoSightings) => {
       cell.text(value);
     });
    });
+}
 
-
-var button = d3.select("#filter-btn");
-
-// Select the form
-var form = d3.select("#form");
-
-// Creating event handlers 
-button.on("click", runEnter);
-form.on("submit",runEnter);
 
 // Event handler function for the form
 function runEnter() {
-
-  // Preventing the page from refreshing
-  d3.event.preventDefault();
+    tbody.html("");
   
   // Select the input element and get the raw HTML node
   var inputElement = d3.select("#datetime");
@@ -56,17 +49,29 @@ function runEnter() {
   var dateInput = inputElement.property("value");
 
   console.log(dateInput); //logging date input
-  //console.log(tableData); //logging return 
+  //console.log(tableData); //logging return
 
   var filteredData = tableData.filter(tableData => tableData.datetime === dateInput);//filtering the table for only the date inputted
 
   console.log(filteredData);//logging the input date
 
-  data.forEach((filteredData) => {
-    var row = tbody.append("tr");
-    Object.entries(filteredData).forEach(([key, value]) => {
-      var cell = row.append("td");
+  filteredData.forEach((filteredDatarow) => {
+    var row1 = tbody.append("tr");
+    Object.values(filteredDatarow).forEach((value) => {
+      var cell = row1.append("td");
       cell.text(value);
     });
    });
+
 }
+
+var button = d3.selectAll("#filter-btn");
+
+// Select the form
+//var form = d3.select("#form");
+
+// Creating event handlers 
+button.on("click", runEnter);
+//form.on("submit",runEnter);
+
+buildOrgtable();
