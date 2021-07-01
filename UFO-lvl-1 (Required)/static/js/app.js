@@ -15,9 +15,9 @@ data.forEach(function(ufoSightings) {
   var row = tbody.append("tr");
 });
 
-// Step 3:  Use `Object.entries` to console.log each weather report value
+//Using `Object.entries` to console.log each sighting
 data.forEach(function(ufoSightings) {
-//  console.log(weatherReport);
+//  console.log(ufoSightings);
  var row = tbody.append("tr");
 
   Object.entries(ufoSightings).forEach(function([key, value]) {
