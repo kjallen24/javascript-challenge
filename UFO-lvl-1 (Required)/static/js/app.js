@@ -36,8 +36,6 @@ data.forEach((ufoSightings) => {
     });
    });
 }
-
-
 // Event handler function for the form
 function runEnter() {
     tbody.html("");
@@ -67,11 +65,7 @@ function runEnter() {
 
 var button = d3.selectAll("#filter-btn");
 
-// Select the form
-//var form = d3.select("#form");
-
 // Creating event handlers 
 button.on("click", runEnter);
-//form.on("submit",runEnter);
 
 buildOrgtable();
