@@ -33,19 +33,20 @@ data.forEach((ufoSightings) => {
     });
    });
 
+
 var button = d3.select("#filter-btn");
 
 // Select the form
 var form = d3.select("#form");
 
-// Create event handlers 
+// Creating event handlers 
 button.on("click", runEnter);
 form.on("submit",runEnter);
 
-// Complete the event handler function for the form
+// Event handler function for the form
 function runEnter() {
 
-  // Prevent the page from refreshing
+  // Preventing the page from refreshing
   d3.event.preventDefault();
   
   // Select the input element and get the raw HTML node
@@ -54,10 +55,18 @@ function runEnter() {
   // Get the value property of the input element
   var dateInput = inputElement.property("value");
 
-  console.log(dateInput);
-  console.log(tableData);
+  console.log(dateInput); //logging date input
+  //console.log(tableData); //logging return 
 
-  var filteredData = tableData.filter(tableData => tableData.datetime === dateInput);
+  var filteredData = tableData.filter(tableData => tableData.datetime === dateInput);//filtering the table for only the date inputted
 
-  console.log(filteredData);
+  console.log(filteredData);//logging the input date
+
+  data.forEach((filteredData) => {
+    var row = tbody.append("tr");
+    Object.entries(filteredData).forEach(([key, value]) => {
+      var cell = row.append("td");
+      cell.text(value);
+    });
+   });
 }
